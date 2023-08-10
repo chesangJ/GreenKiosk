@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Customer</th>
+            <th>Amount</th>
+            <th>Date of payment</th>
+            <th>Pending payment</th>
+            <th>Payment Methods</th>
+            <th>Date created</th>
+            <th>Date updated</th>
+            
+
+        </tr>
+        <tbody>
+            {% for payment in payments%}
+            <tr>
+                <td>{{payment.customer}} </td>
+                <td>{{payment.amount}} </td>
+                <td> {{payment.date_of_payment}}</td>
+                <td>{{payment.pending_payment}} </td>
+                <td>{{payment.payment_methods}} </td>
+                <td>{{payment.date_created}} </td>
+                <td>{{payment.date_updated}} </td>
+            
+                
+                <td><a href="{% url 'payment_details_view' id=payment.id %}">View order</a> </td>
+                <td><a href="{% url 'edit_payment_view' id=payment.id %}">Edit order</a></td>
+             
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

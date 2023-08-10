@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>name</th>
+            <th>email</th>
+            <th>contacts</th>
+            <th>location</th>
+            <th>Customer details</th>
+            <th>Edit Customer</th>
+        </tr>
+        <tbody>
+            {% for customer in customers %}
+            <tr>
+                <td>{{customer.name}} </td>
+                <td>{{customer.email}} </td>
+                <td> {{customer.contacts}}</td>
+                <td>{{customer.location}} </td>
+                
+                <td><a href="{% url 'customer_detail_view' id=customer.id %}">View customer</a> </td>
+                <td><a href="{% url 'edit_customer_view' id=customer.id %}">Edit Customer</a></td>
+             
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</body>
+</html>
