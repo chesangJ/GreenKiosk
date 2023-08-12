@@ -1,3 +1,38 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from .form import NotificationUploadForm
+from .models import Notification
 
-# Create your views here.
+def notification_upload_form(request):
+    if request.method =='POST':
+        form=NotificationUploadForm(request.POST)
+        if form.is_valid:
+            form.save()
+        else:
+            form=NotificationUploadForm()
+        return render(request,"notification/notification_upload.html",{"form":form})
+    
+def notification_list(request):
+    notifications=Notification.objects.all()
+    return render(request,"notification/notification_list.html",{"notifications":notifications})
+
+def notification_details(request,id):
+    notification=Notification.objects.get(id=id)
+    return render(request,"notification/notification_details.html",{"notification":notification})
+
+def notification_edit(request,id): 
+    notification=Notification.objects.get(id=id)
+    if request.method =="POST":
+        form=NotificationUploadForm(request.POST,instance=notification)
+        if form.is_valid():
+            form.save()
+        return redirect("notification_details",id=id)
+    return render(request,"notification/edit_notification.html",{"form":form})
+    
+    
+
+
+
+
+#
+
+

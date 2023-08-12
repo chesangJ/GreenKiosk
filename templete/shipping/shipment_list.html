@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>location</th>
+            <th>Date of shipment placed</th>
+            <th>Date of shipment recieved</th>
+            <th>Product</th>
+            <th>Delivery Person</th>
+            <th>Date Created</th>
+            <th>Date Updated</th>
+            <th>Orders</th>
+            <th>Shipment Details</th>
+            <th>Edit shipment</th>
+            
+
+        </tr>
+        <tbody>
+            {% for shipment in shipments %}
+            <tr>
+                <td>{{shipment.Location}} </td>
+                <td>{{shipment.Date_shipment_placed}} </td>
+                <td>{{shipment.Date_shipment_recieved}}</td>
+                <td>{{shipment.Product}} </td>
+                <td>{{shipment.Delivery_person}} </td>
+                <td>{{shipment.date_created}} </td>
+                <td>{{shipment.date_updated}} </td>
+                <td>{{shipment.orders}} </td>
+              
+
+
+
+                
+                <td><a href="{% url 'shipment_detail_view' id=shipment.id %}">Shipment details</a> </td>
+                <td><a href="{% url 'edit_shipment_view' id=shipment.id %}">Edit shipment</a></td>
+             
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

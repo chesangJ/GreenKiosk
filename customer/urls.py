@@ -8,5 +8,3 @@ urlpatterns=[
     path('customer/<int:id>/',customer_detail,name='customer_detail_view'),
     path('customer/<int:id>/edit',customer_edit,name='edit_customer_view')
 ]
-#    path("product/<int:id>/",product_details,name='product_details_view'),
-# path("product/<int:id>/",edit_product_view,name='edit_product_view')
