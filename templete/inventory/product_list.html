@@ -5,38 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
 
-<link rel="stylesheet" href="{% static 'inventory/product_list.css' %}">
-    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'inventory/product_list.css' %}">
+    <style>
+        /* Basic styling for the body */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Styling for the table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        /* Styling for product images */
+        .product_images {
+            width: 100%;
+            max-height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        /* Styling for product details and edit links */
+        .product_links {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        /* Grid layout for products */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+            justify-items: center;
+        }
+    </style>
+    <title>Product List</title>
 </head>
 <body>
-    <table>
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Product Details</th>
-                <th>Edit Product</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for product in products %}
-            <tr>
-                <td>{{product.name}}</td>
-                <td>{{product.description}}</td>
-                <td>{{product.price}}</td>
-                <td>
-                <a href="{% url 'product_details_view' id=product.id %}">View details</a>
-
-                </td>
-                <td> <a href="{% url 'edit_product_view' id=product.id %}">Edit Product</a></td>
-                
-            </tr>
-            {% endfor %}
-        </tbody>
-
-
-    </table>
-    
+    <div class="product-grid">
+        {% for product in products %}
+        <div class="product-card">
+            <h3>{{ product.name }}</h3>
+            <img class="product_images" src="{{ product.image.url }}" alt="Image">
+            <p>{{ product.description }}</p>
+            <p>Price: ${{ product.price }}</p>
+            <div>
+                <a class="product_links" href="{% url 'product_details_view' id=product.id %}">View details</a>
+                <a class="product_links" href="{% url 'edit_product_view' id=product.id %}">Edit Product</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </body>
 </html>

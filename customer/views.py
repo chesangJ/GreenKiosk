@@ -25,7 +25,7 @@ def customer_edit(request,id):
         form=CustomerUploadForm(request.POST,instance=customer)
         if form.is_valid():
            form.save
-        return redirect('customer_detail',id=id)
+        return redirect('customer_detail_view',id=id)
     else:
         form=CustomerUploadForm(instance=customer)
         return render(request,'customer/edit_customer.html',{'form':form})

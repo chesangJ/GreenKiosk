@@ -3,15 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <style>
+        /* Basic styling for the body */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        /* Styling for the customer details container */
+        .customer-details-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styling for customer details */
+        .customer-details {
+            margin-bottom: 10px;
+        }
+    </style>
+    <title>Customer Details</title>
 </head>
 <body>
-    <h4>{{customer.name}}</h4>
-    <p>{{customer.email}}</p>
-    <span>{{customer.contacts}}</span>
-    <span>{{customer.location}}</span>
-    
-    
-    
+    <div class="customer-details-container">
+        <h4 class="customer-details">{{ customer.name }}</h4>
+        <p class="customer-details">{{ customer.email }}</p>
+        <span class="customer-details">{{ customer.contacts }}</span>
+        <span class="customer-details">{{ customer.location }}</span>
+    </div>
 </body>
 </html>

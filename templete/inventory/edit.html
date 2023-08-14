@@ -3,18 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <style>
+        /* Basic styling for the body */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        /* Styling for the form container */
+        .edit-form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styling for form elements */
+        .edit-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .edit-form label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        .edit-form input[type="text"],
+        .edit-form input[type="number"],
+        .edit-form input[type="file"] {
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .edit-form button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            align-self: center;
+        }
+    </style>
+    <title>Edit Product</title>
 </head>
 <body>
-    <h3>Edit Product</h3>
-    <form method="POST" class="edit-form" enctype="multipart/form-data">
-        <!-- //cross sign request forgery -->
-       {%csrf_token%}
-   {{form.as_p}}
-   <button type="submit">Save</button>
-
-
-    </form>
-    
+    <div class="edit-form-container">
+        <form method="POST" class="edit-form" enctype="multipart/form-data">
+            <!-- Cross-site request forgery token -->
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save</button>
+        </form>
+    </div>
 </body>
 </html>
