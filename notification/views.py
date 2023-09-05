@@ -19,15 +19,7 @@ def notification_details(request,id):
     notification=Notification.objects.get(id=id)
     return render(request,"notification/notification_details.html",{"notification":notification})
 
-def notification_edit(request,id): 
-    notification=Notification.objects.get(id=id)
-    if request.method =="POST":
-        form=NotificationUploadForm(request.POST,instance=notification)
-        if form.is_valid():
-            form.save()
-        return redirect("notification_details",id=id)
-    return render(request,"notification/edit_notification.html",{"form":form})
-    
+
     
 
 

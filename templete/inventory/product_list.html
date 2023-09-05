@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
+    
+    
 
-    <link rel="stylesheet" href="{% static 'inventory/product_list.css' %}">
+
+    
     <style>
         /* Basic styling for the body */
         body {
@@ -59,22 +61,29 @@
             justify-items: center;
         }
     </style>
+     
     <title>Product List</title>
 </head>
 <body>
+    {% include 'navbar.html' %}
     <div class="product-grid">
+       
         {% for product in products %}
         <div class="product-card">
             <h3>{{ product.name }}</h3>
             <img class="product_images" src="{{ product.image.url }}" alt="Image">
             <p>{{ product.description }}</p>
             <p>Price: ${{ product.price }}</p>
+            
             <div>
                 <a class="product_links" href="{% url 'product_details_view' id=product.id %}">View details</a>
-                <a class="product_links" href="{% url 'edit_product_view' id=product.id %}">Edit Product</a>
+                
             </div>
+          
         </div>
         {% endfor %}
     </div>
+
+    
 </body>
 </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Basic styling for the body */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        /* Styling for the customer details container */
+        .notification-details-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styling for customer details */
+        .notification-details {
+            margin-bottom: 10px;
+        }
+    </style>
+    <title>Notification </title>
+</head>
+<body>
+    <div class="notification-details-container">
+        <h4 class="notification">{{ notification.title }}</h4>
+        <p class="notification-details">{{ notification.description }}</p>
+        <span class="notification-details">{{ notification.message }}</span> <br>
+        <span class="notification-details">{{ notification.date_time }}</span>
+    </div>
+</body>
+</html>

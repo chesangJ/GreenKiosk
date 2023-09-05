@@ -3,41 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Notification List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ddd;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <table>
         <tr>
-            <th>Recievers Name</th>
             <th>Title</th>
             <th>Description</th>
             <th>Message</th>
             <th>Date_time</th>
             <th>Date Created</th>
             <th>Date Updated</th>
-          
-            
-
+            <th></th>
+            <th></th>
         </tr>
         <tbody>
             {% for notification in notifications %}
             <tr>
-                <td>{{notifiaction.Recievers_Name}}</td>
-                <td>{{notification.title}} </td>
-                <td>{{notification.description}}</td>
-                <td>{{notification.message}} </td>
-                <td>{{notification.date_time}} </td>
-                <td>{{notificatiob.date_created}} </td>
-                <td>{{notification.date_updated}} </td>
+                <td>{{ notification.title }}</td>
+                <td>{{ notification.description }}</td>
+                <td>{{ notification.message }}</td>
+                <td>{{ notification.date_time }}</td>
+                <td>{{ notification.date_created }}</td>
+                <td>{{ notification.date_updated }}</td>
+                <td><a href="{% url 'notification_details_view' id=notification.id %}">Details</a></td>
                 
-              
-
-
-
-                
-                <td><a href="{% url 'notification_details_view' id=notification.id %}">Notification details</a> </td>
-                <td><a href="{% url 'notification_edit_view' id=notification.id %}">Notification edit</a></td>
-             
             </tr>
             {% endfor %}
         </tbody>

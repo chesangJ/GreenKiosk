@@ -26,7 +26,7 @@ def payment_edit(request,id):
         form=PaymentUploadForm(request.POST,instance=payment)
         if form.is_valid():
            form.save
-        return redirect('payment_detail',id=id)
+        return redirect('payment_details_view',id=id)
     else:
         form=PaymentUploadForm(instance=payment)
         return render(request,'payment/edit_payment.html',{'form':form})

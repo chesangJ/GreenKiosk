@@ -1,10 +1,10 @@
-from .views import cart_upload_form,cart_list,cart_detail,cart_edit
 from django.urls import path
+from  .views import cart_detail,add_to_cart,remove_from_cart,checkout
 
-
-urlpatterns=[
-    path('cart/upload',cart_upload_form,name='cart_upload_view'),
-    path('cart/list',cart_list,name='cart_list_view'),
-    path('cart/<int:id>/',cart_detail,name='cart_detail_view'),
-    path('cart/<int:id>/edit',cart_edit,name='edit_cart_view')
+urlpatterns = [
+    path('cart/',cart_detail, name='cart_detail'),
+    path('add_to_cart/<int:product_id>/',add_to_cart, name='add_to_cart'),
+    path('remove_from_cart/<int:cart_item_id>/', remove_from_cart, name='remove_from_cart'),
+    path('checkout/',checkout, name='checkout'),
+    
 ]

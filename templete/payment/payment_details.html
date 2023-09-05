@@ -3,12 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Payment Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        h4 {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .payment-details {
+            width: 60%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .payment-details p, .payment-details span {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+    </style>
 </head>
 <body>
-    <h4>{{payment.customer}}</h4>
-    <p>{{payment.amount}}</p>
-    <span>{{payment.payment_methods}}</span> <br>
-    <span>{{payment.pending_payment}}</span>
+    <div class="payment-details">
+        <h4>{{ payment.customer }}</h4>
+        <p>Amount: {{ payment.amount }}</p>
+        <span>Payment Methods: {{ payment.payment_methods }}</span><br>
+        <span>Pending Payment: {{ payment.pending_payment }}</span>
+        <td><a href="{% url 'edit_payment_view' id=payment.id %}">Edit Payment</a></td>
+    </div>
 </body>
 </html>

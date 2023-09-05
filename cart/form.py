@@ -5,3 +5,8 @@ class CartUploadForm(forms.ModelForm):
     class Meta:
         model=Cart
         fields="__all__"
+        unique_together = (('customer',),)
+       
+
+
+     

@@ -29,6 +29,7 @@ urlpatterns = [
     path("payment/",include("payment.urls")),
     path("shipping/",include("shipping.urls")),
     path("notification/",include("notification.urls")),
+    path("api/",include("api.urls")),
     
     
 ]

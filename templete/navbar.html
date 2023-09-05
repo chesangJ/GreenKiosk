@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.navbar {
+    
+    height: 50%;
+}
+.navbar::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list li {
+    float: left;
+    margin-right: 20px;
+}
+
+.nav-list li a {
+    color: rgb(37, 168, 11);
+    text-decoration: none;
+    font-size: larger;
+}
+</style>
+<body>
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li><a href="{% url 'product_list_view' %}">Home</a></li>
+            <li><a href="{% url 'product_list_view' %}">Products</a></li>
+            <li><a href="{% url 'cart_detail' %}">Cart</a></li>
+            <!-- Add more menu items as needed -->
+        </ul>
+    </nav>
+</body>
+</html>
